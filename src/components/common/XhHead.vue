@@ -1,14 +1,14 @@
 <template>
     <!-- 头部 -->
-      <el-row :gutter="20" type="flex" align="bottom"  justify="space-between">
+      <el-row class="xhhead" :gutter="20" type="flex" align="bottom"  justify="space-between">
         <el-col :span="5">
-          <div class="grid-content bg-purple">新华书店后台管理系统</div>
+          <div class="grid-content bg-purple xhTitle">新华书店后台管理系统</div>
         </el-col>
-        <el-col :span="13">
+        <el-col :span="14">
           <div class="grid-content"></div>
         </el-col>
-        <el-col :span="6">
-          <div class="grid-content bg-purple">
+        <el-col :span="5">
+          <div class="grid-content bg-purple headRight">
             <i class="el-icon-message"></i>
             <i class="el-icon-headset"></i>
             <el-dropdown>
@@ -20,8 +20,10 @@
                 <el-dropdown-item command="b">皮肤二</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-            <el-avatar size="medium" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-            <span class="managerName">administrator</span>
+            <div>
+              <el-avatar size="medium" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+              <span class="managerName">administrator</span>
+            </div>
           </div>
         </el-col>
       </el-row>
@@ -34,19 +36,15 @@ export default {
 }
 </script>
 
-<style>
-
-
-  .el-row {
-    margin-bottom: 0px;
-  &:last-child {
-     margin-bottom: 0;
-   }
+<style scoped>
+  .xhhead{
+    height:60px;
+    background-color: #111;
+    color: #fff;
+    line-height: 60px;
+    text-align: right; font-size: 12px;
   }
 
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
   .grid-content {
     min-height: 36px;
     font-size: 20px;
@@ -54,9 +52,13 @@ export default {
     color: #fff;
     text-align-last: left;
   }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
+  .xhTitle{
+    font-size:20px;
+  }
+  .headRight{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
   }
   /* 换肤样式 */
   .el-dropdown-link {
@@ -73,6 +75,7 @@ export default {
     vertical-align: middle;
   }
   .managerName {
+    margin-left: 5px;
     font-size: 14px;
     font-weight: 400;
   }

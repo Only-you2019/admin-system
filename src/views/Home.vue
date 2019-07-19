@@ -2,18 +2,18 @@
   <div class="home">
     <el-container class="container">
       <!-- 头部 -->
-      <el-header style="">
+      <el-header>
         <xh-head></xh-head>
       </el-header>
 
       <el-container>
         <!-- 左侧导航栏 -->
-        <el-aside width="200px" class="aside">
+        <el-aside width="220px" class="aside">
           <xh-aside></xh-aside>
         </el-aside>
         <!-- 右侧主体 -->
         <el-main class="el-main">
-          <xh-index></xh-index>
+            <xh-index></xh-index>
         </el-main>
       </el-container>
     </el-container>
@@ -35,11 +35,16 @@ export default {
 </script>
 
 <style scoped>
-  .el-header {
-    background-color: #b3c0d1;
-    color: #333;
-    line-height: 60px;
-    text-align: right; font-size: 12px
+  .el-header{
+    background-color: #111;
   }
-
+  .aside{
+    height: 700px;
+    background-color: #222324;
+    /* border-right: 1px solid #131e26; */
+  }
+  .el-main{
+    height:700px; 
+    background-color: #ecf0f5;
+  }
 </style>

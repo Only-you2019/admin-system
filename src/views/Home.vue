@@ -1,12 +1,12 @@
 <template>
-  <div class="home">
-    <el-container class="container">
+  <!-- <div class="home"> -->
+    <el-container class="container1">
       <!-- 头部 -->
       <el-header>
         <xh-head></xh-head>
       </el-header>
 
-      <el-container>
+      <el-container class="content">
         <!-- 左侧导航栏 -->
         <el-aside width="220px" class="aside">
           <xh-aside></xh-aside>
@@ -17,7 +17,7 @@
         </el-main>
       </el-container>
     </el-container>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -35,16 +35,17 @@ export default {
 </script>
 
 <style scoped>
+  .container1{
+    height: 100%;
+  }
   .el-header{
     background-color: #111;
   }
   .aside{
-    height: 700px;
     background-color: #222324;
     /* border-right: 1px solid #131e26; */
   }
   .el-main{
-    height:700px; 
     background-color: #ecf0f5;
   }
 </style>

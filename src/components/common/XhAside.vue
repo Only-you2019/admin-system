@@ -1,7 +1,6 @@
 <template>
   <!-- 左侧导航栏 -->
-  <div class="box">
-  <el-scrollbar style="height:700px">
+  <!-- <div class="box"> -->
     <el-row class="tac">
         <el-menu
         :default-openeds="['3','4']"
@@ -82,8 +81,7 @@
           </el-menu-item>
         </el-menu>
     </el-row>
-  </el-scrollbar>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -101,9 +99,6 @@ export default {
 </script>
 
 <style scoped>
-  .box{
-    height: 683px;
-    overflow: hidden;
-  }
   
+
 </style>

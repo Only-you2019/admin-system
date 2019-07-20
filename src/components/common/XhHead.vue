@@ -1,15 +1,11 @@
 <template>
     <!-- 头部 -->
-      <el-row class="xhhead" :gutter="20" type="flex" align="bottom"  justify="space-between">
-        <el-col :span="5">
+      <el-row class="xhhead" :gutter="20" type="flex" align="middle"  justify="space-between">
+        <el-col :span="18" height="100%">
           <div class="grid-content bg-purple xhTitle">新华书店后台管理系统</div>
         </el-col>
-        <el-col :span="14">
-          <div class="grid-content"></div>
-        </el-col>
-        <el-col :span="5">
-          <div class="grid-content bg-purple headRight">
-            <i class="el-icon-message"></i>
+        <el-col :span="6">
+            <i class="el-icon-message" ></i>
             <i class="el-icon-headset"></i>
             <el-dropdown>
                <span class="el-dropdown-link">
@@ -20,11 +16,8 @@
                 <el-dropdown-item command="b">皮肤二</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
-            <div>
-              <el-avatar size="medium" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
-              <span class="managerName">administrator</span>
-            </div>
-          </div>
+            <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="head" class="manager">
+            <span class="managerName">administror</span>
         </el-col>
       </el-row>
 </template>
@@ -38,15 +31,15 @@ export default {
 
 <style scoped>
   .xhhead{
-    height:60px;
+    height: 100%;
     background-color: #111;
     color: #fff;
-    line-height: 60px;
     text-align: right; font-size: 12px;
   }
 
   .grid-content {
-    min-height: 36px;
+    height: 100%;
+    /* min-height: 36px; */
     font-size: 20px;
     font-weight: 800;
     color: #fff;
@@ -55,11 +48,11 @@ export default {
   .xhTitle{
     font-size:20px;
   }
-  .headRight{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
+  .el-icon-message,.el-icon-headset{
+    font-size: 20px;
+    margin: 0 5px ;
   }
+
   /* 换肤样式 */
   .el-dropdown-link {
     cursor: pointer;
@@ -74,8 +67,14 @@ export default {
   .el-avatar {
     vertical-align: middle;
   }
+  .manager{
+    width:40px;
+    height:40px;
+    border-radius: 50%;
+    vertical-align: middle;
+    margin: 0 5px;
+  }
   .managerName {
-    margin-left: 5px;
     font-size: 14px;
     font-weight: 400;
   }

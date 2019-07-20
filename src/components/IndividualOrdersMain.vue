@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-table
-                :data="tableData"
+                :data="tableDatatwo"
                 stripe
                 style="width: 100%">
             <el-table-column
@@ -25,26 +25,10 @@
 <script>
     export default {
         name: "IndividualOrdersMain",
-        props:['main'],
+        props:['main','tableDatatwo'],
         data(){
             return{
-                tableData: [{
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    collect: '水浒传'
-                }, {
-                    date: '2016-05-04',
-                    name: '王大虎',
-                    collect: '西游记'
-                }, {
-                    date: '2016-05-01',
-                    name: '王二虎',
-                    collect: '三国演义'
-                }, {
-                    date: '2016-05-03',
-                    name: '王四虎',
-                    collect: '聊斋'
-                }]
+
             }
 
         }
@@ -52,5 +36,27 @@
 </script>
 
 <style scoped>
+.el-header{
 
+    background-color: #111;
+
+  }
+
+  .aside{
+
+    height: 700px;
+
+    background-color: #222324;
+
+    /* border-right: 1px solid #131e26; */
+
+  }
+
+  .el-main{
+
+    height:700px; 
+
+    background-color: #ecf0f5;
+
+  }
 </style>

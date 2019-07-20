@@ -12,14 +12,14 @@
             </el-aside>
             <!-- 右侧主体 -->
             <el-main class="el-main">
-                    <el-input class="messages_zyb" v-model="input" placeholder="客户姓名"></el-input>
+                    <el-input class="messages_zyb" v-model="userName" placeholder="客户姓名"></el-input>
 
-                    <button class="btnzyb">查询</button>
+                    <button class="btnzyb" @click="search()">查询</button>
 
-                    <router-link to="/personalCollection">个人订单</router-link>
+                    <!--<router-link to="/personalCollection">个人订单</router-link>-->
 
-                    <router-link to="/personalInformation">个人信息</router-link>
-                    <houtaiCollectMain :main="main"></houtaiCollectMain>
+                    <!--<router-link to="/personalInformation">个人信息</router-link>-->
+                    <houtaiCollectMain :main="main" :tableDatatwo="tableDatatwo"></houtaiCollectMain>
                 </el-main>
             </el-container>
         </el-container>
@@ -41,20 +41,72 @@
         },
         data() {
             return {
+                userName: '',
                 main: '',
-                input: ''
-
+                tableData_i: [
+                    {
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    collect: '水浒传'
+                 },
+                    {
+                    date: '2016-05-04',
+                    name: '王大虎',
+                    collect: '西游记'
+                },
+                    {
+                    date: '2016-05-01',
+                    name: '王二虎',
+                    collect: '三国演义'
+                },
+                    {
+                    date: '2016-05-03',
+                    name: '王四虎',
+                    collect: '聊斋'
+                }
+            ],
+                tableDatatwo:[]
             }
+        },
+        created(){
+            this.tableDatatwo=this.tableData_i
+        },
+        methods:{
+            search(){
+                let name=this.userName.trim().length;
+                let arr=this.tableData_i.filter(item=>{
+                    return (!name?1:item.name==this.userName)
+                })
+                this.tableDatatwo=arr
+            },
         }
     }
 </script>
 
 <style scoped>
-    .el-header {
-        background-color: #b3c0d1;
-        color: #333;
-        line-height: 60px;
-        text-align: right; font-size: 12px
+
+    .el-header{
+
+        background-color: #111;
+
+    }
+
+    .aside{
+
+        /*height: 700px;*/
+
+        background-color: #222324;
+
+        /* border-right: 1px solid #131e26; */
+
+    }
+
+    .el-main{
+
+        /*height:700px;*/
+
+        background-color: #ecf0f5;
+
     }
 
     a {

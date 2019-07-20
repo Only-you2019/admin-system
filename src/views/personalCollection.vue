@@ -12,6 +12,10 @@
                 </el-aside>
                 <!-- 右侧主体 -->
                 <el-main class="el-main">
+					<el-breadcrumb separator-class="el-icon-arrow-right">
+					  <el-breadcrumb-item :to="{ path: '/' }">用户管理</el-breadcrumb-item>
+					  <el-breadcrumb-item>个人收藏</el-breadcrumb-item>
+					</el-breadcrumb>
                     <el-input class="messages_zyb" v-model="userName" placeholder="客户姓名"></el-input>
 
                     <button class="btnzyb"  @click="search()">查询</button>
@@ -159,6 +163,7 @@
     }
 
     .btnzyb{
+		margin-top: 20px;
         width: 80px;
         height: 35px;
         border-radius: 5px;

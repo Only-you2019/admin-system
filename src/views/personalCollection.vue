@@ -12,15 +12,15 @@
                 </el-aside>
                 <!-- 右侧主体 -->
                 <el-main class="el-main">
-                    <el-input class="messages_zyb" v-model="input" placeholder="客户姓名"></el-input>
+                    <el-input class="messages_zyb" v-model="userName" placeholder="客户姓名"></el-input>
 
-                    <button class="btnzyb">查询</button>
+                    <button class="btnzyb"  @click="search()">查询</button>
 
-                    <router-link to="/personalInformation">个人信息</router-link>
+                    <!--<router-link to="/personalInformation">个人信息</router-link>-->
 
-                    <router-link to="/IndividualOrders">个人收藏</router-link>
+                    <!--<router-link to="/IndividualOrders">个人收藏</router-link>-->
 
-                    <houtaiOrderMain :main="main"></houtaiOrderMain>
+                    <houtaiOrderMain :main="main" :tableDataThree="tableDataThree"></houtaiOrderMain>
                 </el-main>
             </el-container>
         </el-container>
@@ -44,18 +44,105 @@
             return{
                 main:'',
                 header:'',
-                input:''
+                userName:'',
+                tableData_t: [{
+                    date: '2016-05-02',
+                    name: '王小虎',
+                    number:'101234214141',
+                    money:'59',
+                    things:'水浒传'
+                },
+                    {
+                        date: '2016-05-04',
+                        name: '王大虎',
+                        number:'101234214141',
+                        money:'59',
+                        things:'水浒传'
+
+                    },
+                    {
+                        date: '2016-05-01',
+                        name: '王小狮',
+                        number:'101234214141',
+                        money:'59',
+                        things:'水浒传'
+
+                    },
+                    {
+                        date: '2016-05-03',
+                        name: '王大狮',
+                        number:'101234214141',
+                        money:'59',
+                        things:'水浒传'
+
+                    },
+                    {
+                        date: '2016-05-03',
+                        name: '王小狗',
+                        number:'101234214141',
+                        money:'59',
+                        things:'水浒传'
+
+                    },
+                    {
+                        date: '2016-05-03',
+                        name: '王老虎',
+                        number:'101234214141',
+                        money:'59',
+                        things:'水浒传'
+
+                    },
+                    {
+                        date: '2016-05-03',
+                        name: '王大狗',
+                        number:'101234214141',
+                        money:'59',
+                        things:'水浒传'
+
+                    },
+
+                ],
+                tableDataThree:[]
+            }
+        },
+        created(){
+            this.tableDataThree=this.tableData_t
+        },
+        methods:{
+            search(){
+                let name=this.userName.trim().length;
+                let arr=this.tableData_t.filter(item=>{
+                    return (!name?1:item.name==this.userName)
+                })
+                this.tableDataThree=arr
             }
         }
     }
 </script>
 
 <style scoped>
-    .el-header {
-        background-color: #b3c0d1;
-        color: #333;
-        line-height: 60px;
-        text-align: right; font-size: 12px
+    .el-header{
+
+        background-color: #111;
+
+    }
+
+    .aside{
+
+        /*height: 700px;*/
+
+        background-color: #222324;
+
+        /* border-right: 1px solid #131e26; */
+
+    }
+
+    .el-main{
+
+        /*height:700px;*/
+
+        background-color: #ecf0f5;
+
     }
     a{
         display: inline-block;

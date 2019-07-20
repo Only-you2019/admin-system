@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-table
-                :data="tableData"
+                :data="tableDataThree"
                 border
                 style="width: 100%">
             <el-table-column
@@ -35,71 +35,37 @@
 <script>
     export default {
         name: "personalCollectionMain",
-        props:['main'],
+        props:['main','tableDataThree'],
         data() {
             return {
-                tableData: [{
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    number:'101234214141',
-                    money:'59',
-                    things:'水浒传'
-                },
-                    {
-                        date: '2016-05-04',
-                        name: '王大虎',
-                        number:'101234214141',
-                        money:'59',
-                        things:'水浒传'
 
-                    },
-                    {
-                        date: '2016-05-01',
-                        name: '王小狮',
-                        number:'101234214141',
-                        money:'59',
-                        things:'水浒传'
-
-                    },
-                    {
-                        date: '2016-05-03',
-                        name: '王大狮',
-                        number:'101234214141',
-                        money:'59',
-                        things:'水浒传'
-
-                    },
-                    {
-                        date: '2016-05-03',
-                        name: '王小狗',
-                        number:'101234214141',
-                        money:'59',
-                        things:'水浒传'
-
-                    },
-                    {
-                        date: '2016-05-03',
-                        name: '王老虎',
-                        number:'101234214141',
-                        money:'59',
-                        things:'水浒传'
-
-                    },
-                    {
-                        date: '2016-05-03',
-                        name: '王大狗',
-                        number:'101234214141',
-                        money:'59',
-                        things:'水浒传'
-
-                    },
-
-                ]
             }
         }
     }
 </script>
 
 <style scoped>
+.el-header{
 
+    background-color: #111;
+
+  }
+
+  .aside{
+
+    height: 700px;
+
+    background-color: #222324;
+
+    /* border-right: 1px solid #131e26; */
+
+  }
+
+  .el-main{
+
+    height:700px; 
+
+    background-color: #ecf0f5;
+
+  }
 </style>

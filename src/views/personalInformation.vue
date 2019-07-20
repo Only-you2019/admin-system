@@ -12,15 +12,9 @@
                 </el-aside>
                 <!-- 右侧主体 -->
                 <el-main class="el-main">
-                    <el-input class="messages_zyb" v-model="input" placeholder="客户姓名"></el-input>
-
-                    <button class="btnzyb">查询</button>
-
-                    <router-link to="/personalCollection">个人订单</router-link>
-
-                    <router-link to="/IndividualOrders">个人收藏</router-link>
-
-                    <houtai-main :main="main"></houtai-main>
+                    <el-input class="messages_zyb" v-model="userName" placeholder="客户姓名"></el-input>
+                    <button class="btnzyb" @click="search()">查询</button>
+                    <houtai-main :main="main" :tableData="tableData" @deleteRow="deleteRow"></houtai-main>
                 </el-main>
             </el-container>
         </el-container>
@@ -40,21 +34,148 @@
         },
         data() {
             return {
-                input: '',
+                userName: '',
                 header:'',
-                main:''
+                main:'',
+                tableData_w: [
+                    {
+                        date: '2016-05-03',
+                        name: '王小虎',
+                        address: '上海市普陀区金沙江路 1518 弄',
+                        zip: 200333,
+                        id: 6127722199719961995,
+                        sex: '男',
+                        datas: '2019-7-10',
+                        phone: '12345678910',
+                        thing: '西游记'
+                    },
+                    {
+                        date: '2016-06-02',
+                        name: '王大虎',
+                        address: '上海市普陀区金沙江路 1518 弄',
+                        zip: 200333,
+                        id: 6127722199719961995,
+                        sex: '女',
+                        datas: '2019-7-7',
+                        phone: '12345678910',
+                        thing: '三国演义'
+                    },
+                    {
+                        date: '2016-07-04',
+                        name: '王大狮',
+                        address: '上海市普陀区金沙江路 1518 弄',
+                        zip: 200333,
+                        id: 6127722199719961995,
+                        sex: '男',
+                        datas: '2019-7-2',
+                        phone: '12345678910',
+                        thing: '红楼梦'
+                    },
+                    {
+                        date: '2016-08-01',
+                        name: '王小狮',
+                        address: '上海市普陀区金沙江路 1518 弄',
+                        zip: 200333,
+                        id: 6127722199719961995,
+                        sex: '女',
+                        datas: '2019-7-9',
+                        phone: '12345678910',
+                        thing: '水浒传'
+                    },
+                    {
+                        date: '2016-09-01',
+                        name: '王小豹',
+                        address: '上海市普陀区金沙江路 1518 弄',
+                        zip: 200333,
+                        id: 6127722199719961995,
+                        sex: '女',
+                        datas: '2019-7-9',
+                        phone: '12345678910',
+                        thing: '水浒传'
+                    },
+                    {
+                        date: '2016-10-01',
+                        name: '王大豹',
+                        address: '上海市普陀区金沙江路 1518 弄',
+                        zip: 200333,
+                        id: 6127722199719961995,
+                        sex: '女',
+                        datas: '2019-7-9',
+                        phone: '12345678910',
+                        thing: '水浒传'
+                    },
+                    {
+                        date: '2016-12-01',
+                        name: '王小狗',
+                        address: '上海市普陀区金沙江路 1518 弄',
+                        zip: 200333,
+                        id: 6127722199719961995,
+                        sex: '女',
+                        datas: '2019-7-9',
+                        phone: '12345678910',
+                        thing: '水浒传'
+                    },
+                    {
+                        date: '2016-01-01',
+                        name: '王二狗',
+                        address: '上海市普陀区金沙江路 1518 弄',
+                        zip: 200333,
+                        id: 6127722199719961995,
+                        sex: '女',
+                        datas: '2019-7-9',
+                        phone: '12345678910',
+                        thing: '水浒传'
+                    },
+                ],
+                tableData:[]
             }
-
+        },
+        created(){
+            this.tableData=this.tableData_w
+        },
+        methods:{
+            search(){
+                let name=this.userName.trim().length;
+                let arr=this.tableData_w.filter(item=>{
+                    return (!name?1:item.name==this.userName)
+                })
+                this.tableData=arr
+            },
+            deleteRow(index, rows) {
+                this.$confirm('真的要删除吗？')
+                    .then(_ => {
+                        rows.splice(index, 1);
+                    })
+                    .catch(_ => {
+                    });
+            },
         }
     }
 </script>
 
 <style scoped>
-    .el-header {
-        background-color: #b3c0d1;
-        color: #333;
-        line-height: 60px;
-        text-align: right; font-size: 12px
+    .el-header{
+
+        background-color: #111;
+
+    }
+
+    .aside{
+
+        /*height: 700px;*/
+
+        background-color: #222324;
+
+        /* border-right: 1px solid #131e26; */
+
+    }
+
+    .el-main{
+
+        /*height:700px;*/
+
+        background-color: #ecf0f5;
+
     }
     a{
         display: inline-block;
@@ -70,7 +191,6 @@
         margin-left: 20px;
 
     }
-
     .btnzyb{
         width: 80px;
         height: 35px;

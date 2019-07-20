@@ -12,20 +12,19 @@ import HTChildrensBooks from './views/HTChildrensBooks.vue'
 import HTEducationalExamination from './views/HTEducationalExamination.vue'
 import HTLiteratureandArt from './views/HTLiteratureandArt.vue'
 import HTSocialScience from './views/HTSocialScience.vue'
-<<<<<<< HEAD
 import Admin from './views/Admin'
-=======
 import BookList from './views/BookList'
->>>>>>> d49aff5bad11404e617f59e7ad245ee6d119c1d9
-
-
 Vue.use(Router)
-export default new Router({
+ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
+     redirect:'/Home'
+    },
+    {
+      path: '/Home',
       name: 'home',
       component: Home,
     },
@@ -85,20 +84,27 @@ export default new Router({
       component: HTSocialScience
     },
     {
-<<<<<<< HEAD
+
       path: '/Admin',
       name: 'Admin',
       component: Admin
     },
-
-=======
       path: '/BookList',
       name: 'BookList',
       component: BookList
     }
->>>>>>> d49aff5bad11404e617f59e7ad245ee6d119c1d9
-
-
-
   ]
 })
+router.beforeEach((to,from,next)=>{
+  let isLogin=sessionStorage.getItem('user');
+  if(isLogin){
+    next()
+  }else {
+    if(to.path=='/login'){
+      next()
+    }else {
+      next('/login')
+    }
+  }
+})
+export default router

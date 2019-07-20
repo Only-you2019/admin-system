@@ -36,6 +36,7 @@
 		width: 90%;
 		margin-left: 60px;
 		margin-bottom: 30px;
+		margin-top: 20px !important;
 		display: flex;
 		align-items: center;
 		flex: 1;

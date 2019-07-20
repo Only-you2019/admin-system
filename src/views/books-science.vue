@@ -13,6 +13,11 @@
 				</el-aside>
 				<!-- 右侧主体 -->
 				<el-main class="el-main">
+					<el-breadcrumb separator-class="el-icon-arrow-right">
+					  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					  <el-breadcrumb-item>图书分类</el-breadcrumb-item>
+					  <el-breadcrumb-item>科学技术</el-breadcrumb-item>
+					</el-breadcrumb>
 					<div class="Books-scients">
 						<div class="Books-scients-box">
 							<books-life-slect @searchBook="searchBook" ></books-life-slect>
@@ -150,39 +155,35 @@
 </script>
 
 <style scoped>
-	.el-container{
-		height: 100%;
+		.el-container{
+			height: 100%;
+		}
+		.el-header {
+			  background-color: #111;
+			color: #333;
+			line-height: 60px;
+			text-align: right; font-size: 12px
+		}
+		.Books-scients{
+			width: 100%;
+			height: 100%;
+		}
+		.Books-scients-box{
+			width: 97%;
+			border: 1px solid silver;
+			margin: 0 auto;
+		}
+	
+	.aside{
+	  background-color: #222324;
 	}
-	.el-header {
-		  background-color: #111;
-		color: #333;
-		line-height: 60px;
-		text-align: right; font-size: 12px
+	
+	.el-main{
+	  background-color: #ecf0f5;
+	
 	}
 	.Books-scients{
-		width: 100%;
-		height: 100%;
+		  margin-top:20px;
 	}
-	.Books-scients-box{
-		width: 97%;
-		border: 1px solid silver;
-		margin: 0 auto;
-	}
-
-  .aside{
-
-
-    background-color: #222324;
-
-    /* border-right: 1px solid #131e26; */
-
-  }
-
-  .el-main{
-
-
-    background-color: #ecf0f5;
-
-  }
 
 </style>

@@ -15,12 +15,16 @@ import HTSocialScience from './views/HTSocialScience.vue'
 
 Vue.use(Router)
 
-export default new Router({
+ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
+     redirect:'/Home'
+    },
+    {
+      path: '/Home',
       name: 'home',
       component: Home,
     },
@@ -84,4 +88,18 @@ export default new Router({
 
 
   ]
+})
+export default router
+
+router.beforeEach((to,from,next)=>{
+  let isLogin=sessionStorage.getItem('user');
+  if(isLogin){
+    next()
+  }else {
+    if(to.path=='/login'){
+      next()
+    }else {
+      next('/login')
+    }
+  }
 })

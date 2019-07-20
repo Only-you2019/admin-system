@@ -17,19 +17,47 @@
               </el-dropdown-menu>
             </el-dropdown>
             <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="head" class="manager">
-            <span class="managerName">administror</span>
+            <span class="managerName">{{user}}</span>
             <i class="el-icon-switch-button"></i>
-            <span class="quit">退出</span>
+            <span class="quit" @click="loginOut">退出</span>
 
         </el-col>
       </el-row>
 </template>
 
 <script>
-
-export default {
-    name:"XhHead"
-}
+    import api from "../../XinHuaApi"
+    export default {
+        name:"XhHead",
+        data(){
+            user:""
+        },
+        created(){
+            this.user=sessionStorage.getItem('user');
+        },
+        methods:{
+            loginOut(){
+                api.get('/api/xinhua/amdin/logout').then(data => {
+                    // 判断http请求状态码,200为请求成功
+                    if (data.status === 200) {
+                        // 判断接口请求是否成功 0为成功
+                        if (data.data.status === 0) {
+                            // 成功时接收数据
+                            sessionStorage.removeItem("user")
+                            this.$router.push("/login")
+                            this.$toast('您已退出登录');
+                        } else {
+                            // 失败时打印错误信息
+                            console.log(data.data.err);
+                        }
+                    }
+                }).catch(err => {
+                    // 请求错误返回错误信息
+                    console.log(err);
+                });
+            }
+        }
+    }
 </script>
 
 <style scoped>
@@ -53,8 +81,11 @@ export default {
   }
   .el-icon-message,.el-icon-headset,.el-icon-switch-button{
     font-size: 20px;
-    margin: 0 5px ;
+    margin: 0 8px ;
     vertical-align: middle;
+  }
+  .quit{
+      cursor: pointer;
   }
 
   /* 换肤样式 */
@@ -63,6 +94,7 @@ export default {
     color: #fff;
     font-size: 16px;
     font-weight: 400;
+    margin:0 8px;
   }
   .el-icon-arrow-down {
     font-size: 12px;

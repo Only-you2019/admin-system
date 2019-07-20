@@ -53,7 +53,7 @@
                 this.$refs.ruleForm2.validate((valid) => {
                     if(valid){
                         this.logining = true;
-                        var url2 = '/api/xinhua/login/account?mobile=' + this.ruleForm2.username + "&&pass=" + this.ruleForm2.password
+                        var url2 = '/api/xinhua/admin/login?name=' + this.ruleForm2.username + "&&pass=" + this.ruleForm2.password
                         this.$axios.post(url2).then((res) => {
                             if (res.status == 200) {
                                 if (res.data.status == 0) {

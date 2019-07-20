@@ -17,6 +17,7 @@ import BookList from './views/BookList'
 
 
 
+
 Vue.use(Router)
  const router = new Router({
   mode: 'history',

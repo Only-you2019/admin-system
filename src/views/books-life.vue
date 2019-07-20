@@ -17,7 +17,7 @@
 						<div class="Books-scients-box">
 							<books-life-slect @searchBook="searchBook" ></books-life-slect>
 							<books-life-find></books-life-find>
-							<books-life-table :tableData="tableData"></books-life-table>
+							<books-life-table @handleCurrentChange="handleCurrentChange" :tableData="tableData"></books-life-table>
 						</div>
 					</div>
 				</el-main>
@@ -46,7 +46,41 @@
 			return{
 			tableData:[],
 			book_new:{},
+			searchBook_new:[],
 	        new_tableData: [
+				{
+				  id: "1",
+				  pic: '森式出版社',
+				  booksName:'系统电子兼容',
+				  author:'赵辉',
+				  price:'56.05',
+				  sort:'科学技术',
+				  
+				},
+				{
+				  id: "2",
+				  pic: '森式出版社',
+				  booksName:'人工电磁结构天线理论与设计',
+				  author:'曹文权',
+				  price:'45.6',
+				  sort:'科学技术'
+				}, 
+				{
+				  id: "3",
+				  pic: '森式出wr版社',
+				  booksName:'盘龙',
+				  author:'我爱rrwe吃西红柿',
+				  price:'100',
+				  sort:'科学技术'
+				}, 
+				{
+				  id: "4",
+				  pic: '森式出版社',
+				  booksName:'盘龙',
+				  author:'我爱吃西红柿',
+				  price:'1023000',
+				  sort:'科学技术'
+				},
 				{
 				  id: "1",
 				  pic: '森式出版社',
@@ -84,7 +118,8 @@
 			}
 		},
 		created(){
-			this.tableData=this.new_tableData
+			// this.tableData=this.new_tableData
+			this.tableData=this.new_tableData.slice(0,5)
 		},
 		methods:{
 			//查询书籍
@@ -103,7 +138,13 @@
 			  })
 			  this.tableData = arr
 			
-			}
+			},
+
+	  //分页
+        handleCurrentChange(val) {
+            this.tableData=this.new_tableData.slice(5*(val-1),5*val)
+            this.searchBook_new=this.new_tableData.slice(5*(val-1),5*val)
+        },
 		}
 	}
 </script>

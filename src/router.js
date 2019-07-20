@@ -12,6 +12,8 @@ import HTChildrensBooks from './views/HTChildrensBooks.vue'
 import HTEducationalExamination from './views/HTEducationalExamination.vue'
 import HTLiteratureandArt from './views/HTLiteratureandArt.vue'
 import HTSocialScience from './views/HTSocialScience.vue'
+import Admin from './views/Admin'
+import BookList from './views/BookList'
 
 Vue.use(Router)
 
@@ -79,7 +81,16 @@ export default new Router({
       name: 'HTSocialScience',
       component: HTSocialScience
     },
-
+    {
+      path: '/Admin',
+      name: 'Admin',
+      component: Admin
+    },
+    {
+      path: '/BookList',
+      name: 'BookList',
+      component: BookList
+    }
 
 
 

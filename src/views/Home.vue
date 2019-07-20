@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="home"> -->
     <el-container class="container1">
       <!-- 头部 -->
       <el-header>
@@ -17,7 +16,6 @@
         </el-main>
       </el-container>
     </el-container>
-  <!-- </div> -->
 </template>
 
 <script>

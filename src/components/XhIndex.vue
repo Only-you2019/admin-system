@@ -6,24 +6,24 @@
     </el-breadcrumb>
     <div class="rows">
       <div class="pic1 pic">
-        <div class="panel-heading">销售分析</div>
+        <div class="panel-heading">月度销售分析</div>
         <div id="pic1-panel-body" class="panel-body"></div>
       </div>
       <div class="pic2 pic">
-        <div class="panel-heading">趋势分析</div>
+        <div class="panel-heading">季度销售分析</div>
         <div id="pic2-panel-body" class="panel-body"></div>
       </div>
     </div>
     <div class="rows">
       <div class="pic3 pic">
         <div class="panel">
-          <div class="panel-heading">销售分析</div>
+          <div class="panel-heading">类别销售分析</div>
           <div id="pic3-panel-body" class="panel-body"></div>
         </div>
       </div>
       <div class="pic4 pic">
         <div class="panel">
-          <div class="panel-heading">销售分析</div>
+          <div class="panel-heading">渠道销售分析</div>
           <div id="pic4-panel-body" class="panel-body"></div>
         </div>
       </div>
@@ -45,13 +45,19 @@ export default {
         mychart1.setOption({
             xAxis: {
                 type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                data: ['一月', '二月', '三月', '四月', '五月', '六月', '七月','八月', '九月', '十月', '十一月', '十二月']
             },
             yAxis: {
                 type: 'value'
             },
+            itemStyle:{
+              color:'#FF5A5E'
+            },
+            lineStyle:{
+              color:'#F7464A'
+            },
             series: [{
-                data: [820, 932, 901, 934, 1290, 1330, 1320],
+                data: [299, 432, 801, 934, 1290, 889,1330, 598, 865, 1253, 928, 1134],
                 type: 'line'
             }]
         })
@@ -59,7 +65,7 @@ export default {
     },
     drawGraph(){
         let mychart2 = this.$echarts.init(document.getElementById("pic2-panel-body"));
-        var axisData = ['周一','周二','周三','很长很长的周四','周五','周六','周日'];
+        var axisData = ['周一','周二','周三','周四','周五','周六','周日'];
         var data = axisData.map(function (item, i) {
             return Math.round(Math.random() * 1000 * (i + 1));
         });
@@ -72,7 +78,7 @@ export default {
         links.pop();
         mychart2.setOption({
             title: {
-                text: '笛卡尔坐标系上的 Graph'
+                text: ''
             },
             tooltip: {},
             xAxis: {
@@ -88,11 +94,14 @@ export default {
                     type: 'graph',
                     layout: 'none',
                     coordinateSystem: 'cartesian2d',
-                    symbolSize: 40,
+                    symbolSize: 30,
                     label: {
                         normal: {
                             show: true
                         }
+                    },
+                    itemStyle:{
+                      color:'#F7464A'
                     },
                     edgeSymbol: ['circle', 'arrow'],
                     edgeSymbolSize: [4, 10],
@@ -128,17 +137,13 @@ export default {
             splitLine: { show: false },
             show: true,
             data: [
-              "农业水利",
-              "科学技术",
-              "教育",
-              "政治法律",
-              "城乡教育",
-              "公交邮电",
-              "城乡建设",
-              "经济发展",
-              "城市规划",
-              "公共卫生",
-              "社会福利"
+              "文学艺术",
+              "人文社科",
+              "少儿童书",
+              "教育考试",
+              "经济金融",
+              "生活休闲",
+              "科学技术"
             ]
           }
         ],
@@ -183,7 +188,7 @@ export default {
                 }
               }
             },
-            data: [120, 210, 100, 40, 120, 50, 60, 50, 250, 230, 70],
+            data: [120, 210, 100, 40, 120, 50, 60],
             markPoint: {
               tooltip: {
                 trigger: "item",
@@ -285,20 +290,30 @@ export default {
     drawPie() {
       let mychart4 = this.$echarts.init(document.getElementById("pic4-panel-body"));
       mychart4.setOption({
+        color:['#F7464A','#46BFBD','#FDB45C','#949FB1'],
         tooltip: {
           trigger: "item",
           formatter: "{a} <br/>{b}: {c} ({d}%)"
         },
+        grid:{
+          top: 0,
+          left: 100,
+          right: 5,
+          height: 40
+        },
         legend: {
           orient: "horizontal",
           x: "center",
-          bottom:"5",
+          bottom:"40",
+          itemWidth: 18,
+          itemHeight: 18,
           data: ["直接访问", "邮件营销", "联盟广告", "视频广告"]
         },
         series: [
           {
             name: "访问来源",
             type: "pie",
+            center:['50%','40%'],
             radius: ["30%", "60%"],
             avoidLabelOverlap: false,
             label: {
@@ -337,13 +352,10 @@ export default {
 
 <style>
 /* 右侧主体内容(首页)样式 */
-.xhIndex {
-  overflow: auto;
-}
 .rows {
   display: flex;
   justify-content: space-between;
-  margin: 0.8% 0;
+  margin: 2% 0;
   overflow: hidden;
 }
 
@@ -352,12 +364,12 @@ export default {
 }
 .pic1,
 .pic3 {
-  width: 69%;
+  width: 59%;
   border: 1px solid #e6e6e6;
 }
 .pic2,
 .pic4 {
-  width: 30%;
+  width: 40%;
   border: 1px solid #e6e6e6;
 }
 

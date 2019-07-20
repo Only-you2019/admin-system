@@ -1,10 +1,10 @@
 <template>
     <!-- 头部 -->
       <el-row class="xhhead" :gutter="20" type="flex" align="middle"  justify="space-between">
-        <el-col :span="18" height="100%">
+        <el-col :span="8" height="100%">
           <div class="grid-content bg-purple xhTitle">新华书店后台管理系统</div>
         </el-col>
-        <el-col :span="6">
+        <el-col :span="16">
             <i class="el-icon-message" ></i>
             <i class="el-icon-headset"></i>
             <el-dropdown>
@@ -18,6 +18,9 @@
             </el-dropdown>
             <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="head" class="manager">
             <span class="managerName">administror</span>
+            <i class="el-icon-switch-button"></i>
+            <span class="quit">退出</span>
+
         </el-col>
       </el-row>
 </template>
@@ -48,9 +51,10 @@ export default {
   .xhTitle{
     font-size:20px;
   }
-  .el-icon-message,.el-icon-headset{
+  .el-icon-message,.el-icon-headset,.el-icon-switch-button{
     font-size: 20px;
     margin: 0 5px ;
+    vertical-align: middle;
   }
 
   /* 换肤样式 */
@@ -74,8 +78,13 @@ export default {
     vertical-align: middle;
     margin: 0 5px;
   }
-  .managerName {
+  .managerName{
+    margin-right: 10px;
+  }
+  .managerName,.quit {
+    vertical-align: middle;
     font-size: 14px;
     font-weight: 400;
+
   }
 </style>

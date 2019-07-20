@@ -1,39 +1,48 @@
 <template>
-	<div>
+
 			<div class="Books-scients-box-slecte">
-			    <input type="text"  placeholder="ID" autocomplete="off" class="Books-scients-box-slecte-input">
-				<input type="text"  placeholder="书名" autocomplete="off" class="Books-scients-box-slecte-input">
-				<input type="text"  placeholder="作者" autocomplete="off" class="Books-scients-box-slecte-input">
-				<input type="text"  placeholder="价格" autocomplete="off" class="Books-scients-box-slecte-input">
-			    <button class="Books-scients-box-slecte-query" >查询</button>
+			    <input type="text" v-model="book.number"  placeholder="ID" autocomplete="off" class="Books-scients-box-slecte-input">
+				<input type="text" v-model="book.title" placeholder="书名" autocomplete="off" class="Books-scients-box-slecte-input">
+				<input type="text" v-model="book.author" placeholder="作者" autocomplete="off" class="Books-scients-box-slecte-input">
+				<input type="text" v-model="book.price" placeholder="价格" autocomplete="off" class="Books-scients-box-slecte-input">
+			    <button class="Books-scients-box-slecte-query" @click="searchBook">查询</button>
 			</div>
-	</div>
 </template>
 
 <script>
 	export default{
-		name:"books-life-slect"
+		name:"books-life-slect",
+		data(){
+			return{
+				book:{
+					number:"",
+					title:"",
+					author:"",
+					price:"",
+				}
+			}
+		},
+		methods:{
+			searchBook(book){
+				this.$emit("searchBook",this.book)
+			}
+		}
 	}
 </script>
 
 <style scoped>
-	.Books-scients{
-		width: 100%;
-		height: 100%;
-	}
-	.Books-scients-box{
-		width: 97%;
-		border: 1px solid silver;
-		margin: 0 auto;
-	}
+
 		.Books-scients-box-slecte{
 		width: 90%;
-		margin: 10px auto ;
+		margin-left: 60px;
+		margin-bottom: 30px;
 		display: flex;
+		align-items: center;
+		flex: 1;
+		flex-wrap:wrap ;
 	}
 	.Books-scients-box-slecte-input{
 		display: block;
-		width: 140px;
 		height: 30px;
 		border: 1px solid #C0C0C0;
 		margin-right: 10px;

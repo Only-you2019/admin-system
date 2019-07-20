@@ -16,13 +16,18 @@ import Admin from './views/Admin'
 import BookList from './views/BookList'
 
 
+
 Vue.use(Router)
-export default new Router({
+ const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
       path: '/',
+     redirect:'/Home'
+    },
+    {
+      path: '/Home',
       name: 'home',
       component: Home,
     },
@@ -86,10 +91,26 @@ export default new Router({
       name: 'Admin',
       component: Admin
     },{
+      path: '/Admin',
+      name: 'Admin',
+      component: Admin
+    },{
       path: '/BookList',
       name: 'BookList',
       component: BookList
     }
-
   ]
 })
+router.beforeEach((to,from,next)=>{
+  let isLogin=sessionStorage.getItem('user');
+  if(isLogin){
+    next()
+  }else {
+    if(to.path=='/login'){
+      next()
+    }else {
+      next('/login')
+    }
+  }
+})
+export default router

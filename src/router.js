@@ -12,6 +12,7 @@ import HTChildrensBooks from './views/HTChildrensBooks.vue'
 import HTEducationalExamination from './views/HTEducationalExamination.vue'
 import HTLiteratureandArt from './views/HTLiteratureandArt.vue'
 import HTSocialScience from './views/HTSocialScience.vue'
+import BookList from './views/BookList'
 
 Vue.use(Router)
 
@@ -83,7 +84,11 @@ Vue.use(Router)
       name: 'HTSocialScience',
       component: HTSocialScience
     },
-
+    {
+      path: '/BookList',
+      name: 'BookList',
+      component: BookList
+    }
 
 
 

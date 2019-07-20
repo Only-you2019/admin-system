@@ -16,7 +16,7 @@
             <i class="el-icon-s-home"></i>
             <span>首页</span>
           </el-menu-item>
-          <el-menu-item index="2" >
+          <el-menu-item index="/BookList" >
             <i class="el-icon-s-order"></i>
             <span>图书列表</span>
           </el-menu-item>

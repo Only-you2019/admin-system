@@ -12,10 +12,9 @@ import HTChildrensBooks from './views/HTChildrensBooks.vue'
 import HTEducationalExamination from './views/HTEducationalExamination.vue'
 import HTLiteratureandArt from './views/HTLiteratureandArt.vue'
 import HTSocialScience from './views/HTSocialScience.vue'
+import Admin from './views/Admin'
 import BookList from './views/BookList'
-
 Vue.use(Router)
-
  const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -85,17 +84,17 @@ Vue.use(Router)
       component: HTSocialScience
     },
     {
+
+      path: '/Admin',
+      name: 'Admin',
+      component: Admin
+    },
       path: '/BookList',
       name: 'BookList',
       component: BookList
     }
-
-
-
   ]
 })
-export default router
-
 router.beforeEach((to,from,next)=>{
   let isLogin=sessionStorage.getItem('user');
   if(isLogin){
@@ -108,3 +107,4 @@ router.beforeEach((to,from,next)=>{
     }
   }
 })
+export default router

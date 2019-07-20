@@ -75,7 +75,7 @@
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>
-          <el-menu-item index="5" >
+          <el-menu-item index="/Admin" >
             <i class="el-icon-s-custom"></i>
             <span>管理员列表</span>
           </el-menu-item>

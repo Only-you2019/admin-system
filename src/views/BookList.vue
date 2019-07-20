@@ -1,7 +1,7 @@
 <template>
   <el-container class="container">
 <!--    头部-->
-    <el-header class="el-header">
+    <el-header>
         <xh-head></xh-head>
     </el-header>
     <el-container>
@@ -159,11 +159,13 @@
 </script>
 
 <style scoped>
-  .el-main {
+    .el-header{
+        background-color: #111 !important;
+    }
+    .el-main {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
     line-height: 30px;
   }
-
 </style>

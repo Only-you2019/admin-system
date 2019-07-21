@@ -41,6 +41,12 @@
 					sort:this.Sort,
 				}
 			  console.log(this.AddRow)
+			  this.Id=""
+			  this.Pic=""
+			  this.BooksName=""
+			  this.Author=""
+			  this.Price=""
+			  this.Sort=""
 			},
 			GiveRow(){
 				Kong.$emit("give",this.AddRow)

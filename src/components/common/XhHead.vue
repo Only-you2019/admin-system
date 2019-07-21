@@ -8,12 +8,12 @@
             <i class="el-icon-message" ></i>
             <i class="el-icon-headset"></i>
             <el-dropdown>
-               <span class="el-dropdown-link">
+               <span class="el-dropdown-link" >
                   换肤<i class="el-icon-arrow-down el-icon--right"></i>
               </span>
               <el-dropdown-menu slot="dropdown">
-                <el-dropdown-item command="a">皮肤一</el-dropdown-item>
-                <el-dropdown-item command="b">皮肤二</el-dropdown-item>
+                <el-dropdown-item @click.native="themeOne">皮肤一</el-dropdown-item>
+                <el-dropdown-item @click.native="themeTwo">皮肤二</el-dropdown-item>
               </el-dropdown-menu>
             </el-dropdown>
             <img src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="head" class="manager">
@@ -30,7 +30,10 @@
     export default {
         name:"XhHead",
         data(){
-            user:""
+            return {
+                user: "",
+                theme: {theme:true}
+            }
         },
         created(){
             this.user=sessionStorage.getItem('user');
@@ -45,7 +48,7 @@
                             // 成功时接收数据
                             sessionStorage.removeItem("user")
                             this.$router.push("/login")
-                            this.$toast('您已退出登录');
+                            // this.$toast('您已退出登录');
                         } else {
                             // 失败时打印错误信息
                             console.log(data.data.err);
@@ -54,6 +57,36 @@
                 }).catch(err => {
                     // 请求错误返回错误信息
                     console.log(err);
+                });
+            },
+            themeOne(){
+                this.theme.theme=true;
+                fetch("http://localhost:3000/xinhua/api/change/theme",{
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json" //请求头
+                    },
+                    body: JSON.stringify(this.theme),
+
+                }).then(res => {
+                    res.json().then(data => {
+                        console.log("换肤1切换成功");
+                    });
+                });
+            },
+            themeTwo(){
+                this.theme.theme=false;
+                fetch("http://localhost:3000/xinhua/api/change/theme",{
+                    method: "post",
+                    headers: {
+                        "Content-Type": "application/json" //请求头
+                    },
+                    body: JSON.stringify(this.theme),
+
+                }).then(res => {
+                    res.json().then(data => {
+                        console.log("换肤2切换成功");
+                    });
                 });
             }
         }

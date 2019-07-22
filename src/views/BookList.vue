@@ -119,6 +119,7 @@
                   price:"100",
                   imgPath:"http://xhsdtest.oss-cn-beijing.aliyuncs.com/images/2018/12/03/c0808eb5-68bd-4fc0-851a-91e0ff3f4261.png",
               }],
+          index:1
       }
     },
       created(){
@@ -131,7 +132,8 @@
         },
         //上传书籍
         sureUpload(book){
-            this.new_tableData.push(book);
+            this.new_tableData.push(JSON.parse(JSON.stringify(book)));
+           this.handleCurrentChange(this.index)
         },
         //查询书籍
         searchBook(book){
@@ -150,6 +152,7 @@
         },
         //分页
         handleCurrentChange(val) {
+            this.index = val
             this.tableData=this.new_tableData.slice(5*(val-1),5*val)
             this.searchBook_new=this.new_tableData.slice(5*(val-1),5*val)
         },

@@ -92,13 +92,8 @@ Vue.use(Router)
       name: 'Admin',
       component: Admin
     },{
-<<<<<<< HEAD
-=======
-      path: '/Admin',
-      name: 'Admin',
-      component: Admin
-    },{
->>>>>>> e6b25c9c2c0c44fcf7df07b8f573a27ed7ce0434
+
+
       path: '/BookList',
       name: 'BookList',
       component: BookList

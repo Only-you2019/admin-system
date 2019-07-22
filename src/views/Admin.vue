@@ -1,8 +1,7 @@
 <template>
-    <div>
-        <el-container class="container">
+    <el-container class="container1">
             <!-- 头部 -->
-            <el-header style="text-align: right; font-size: 12px; background:">
+            <el-header style="text-align: right; font-size: 12px; ">
                 <xh-head></xh-head>
             </el-header>
             <el-container>
@@ -130,7 +129,6 @@
                 </el-main>
             </el-container>
         </el-container>
-    </div>
 </template>
 
 <script>
@@ -264,6 +262,9 @@
 </script>
 
 <style scoped>
+    .container1{
+        height: 100%;
+    }
     .addMessage span {
         display: inline-block;
         width: 60px;
@@ -276,5 +277,15 @@
     }
     .admin-main{
         margin-top:20px;
+    }
+    .aside{
+        background-color: #222324;
+        /* border-right: 1px solid #131e26; */
+    }
+    .el-header{
+        background-color: #111;
+    }
+    .el-main{
+        background-color: #ecf0f5;
     }
 </style>

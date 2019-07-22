@@ -1,34 +1,32 @@
 <template>
-    <div class="IndividualOrders">
-        <el-container class="container">
-            <!-- 头部 -->
-            <el-header style="text-align: right; font-size: 12px">
-                <xh-head></xh-head>
-            </el-header>
-            <el-container>
+    <el-container class="container1">
+        <!-- 头部 -->
+        <el-header style="text-align: right; font-size: 12px">
+            <xh-head></xh-head>
+        </el-header>
+        <el-container>
             <!-- 左侧导航栏 -->
             <el-aside width="200px" class="aside">
                 <xh-aside></xh-aside>
             </el-aside>
             <!-- 右侧主体 -->
             <el-main class="el-main">
-					<el-breadcrumb separator-class="el-icon-arrow-right">
-					  <el-breadcrumb-item :to="{ path: '/' }">用户管理</el-breadcrumb-item>
-					  <el-breadcrumb-item>个人收藏</el-breadcrumb-item>
-					</el-breadcrumb>
-			
-                    <el-input class="messages_zyb" v-model="userName" placeholder="客户姓名"></el-input>
+                <el-breadcrumb separator-class="el-icon-arrow-right">
+                    <el-breadcrumb-item :to="{ path: '/' }">用户管理</el-breadcrumb-item>
+                    <el-breadcrumb-item>个人收藏</el-breadcrumb-item>
+                </el-breadcrumb>
 
-                    <button class="btnzyb" @click="search()">查询</button>
+                <el-input class="messages_zyb" v-model="userName" placeholder="客户姓名"></el-input>
 
-                    <!--<router-link to="/personalCollection">个人订单</router-link>-->
+                <button class="btnzyb" @click="search()">查询</button>
 
-                    <!--<router-link to="/personalInformation">个人信息</router-link>-->
-                    <houtaiCollectMain :main="main" :tableDatatwo="tableDatatwo"></houtaiCollectMain>
-                </el-main>
-            </el-container>
+                <!--<router-link to="/personalCollection">个人订单</router-link>-->
+
+                <!--<router-link to="/personalInformation">个人信息</router-link>-->
+                <houtaiCollectMain :main="main" :tableDatatwo="tableDatatwo"></houtaiCollectMain>
+            </el-main>
         </el-container>
-    </div>
+    </el-container>
 </template>
 
 <script>
@@ -50,53 +48,56 @@
                 main: '',
                 tableData_i: [
                     {
-                    date: '2016-05-02',
-                    name: '王小虎',
-                    collect: '水浒传'
-                 },
+                        date: '2016-05-02',
+                        name: '王小虎',
+                        collect: '水浒传'
+                    },
                     {
-                    date: '2016-05-04',
-                    name: '王大虎',
-                    collect: '西游记'
-                },
+                        date: '2016-05-04',
+                        name: '王大虎',
+                        collect: '西游记'
+                    },
                     {
-                    date: '2016-05-01',
-                    name: '王二虎',
-                    collect: '三国演义'
-                },
+                        date: '2016-05-01',
+                        name: '王二虎',
+                        collect: '三国演义'
+                    },
                     {
-                    date: '2016-05-03',
-                    name: '王四虎',
-                    collect: '聊斋'
-                }
-            ],
-                tableDatatwo:[]
+                        date: '2016-05-03',
+                        name: '王四虎',
+                        collect: '聊斋'
+                    }
+                ],
+                tableDatatwo: []
             }
         },
-        created(){
-            this.tableDatatwo=this.tableData_i
+        created() {
+            this.tableDatatwo = this.tableData_i
         },
-        methods:{
-            search(){
-                let name=this.userName.trim().length;
-                let arr=this.tableData_i.filter(item=>{
-                    return (!name?1:item.name==this.userName)
+        methods: {
+            search() {
+                let name = this.userName.trim().length;
+                let arr = this.tableData_i.filter(item => {
+                    return (!name ? 1 : item.name == this.userName)
                 })
-                this.tableDatatwo=arr
+                this.tableDatatwo = arr
             },
         }
     }
 </script>
 
 <style scoped>
+    .container1 {
+        height: 100%;
+    }
 
-    .el-header{
+    .el-header {
 
         background-color: #111;
 
     }
 
-    .aside{
+    .aside {
 
         /*height: 700px;*/
 
@@ -106,7 +107,7 @@
 
     }
 
-    .el-main{
+    .el-main {
 
         /*height:700px;*/
 
@@ -131,7 +132,7 @@
     }
 
     .btnzyb {
-		margin-top: 20px;
+        margin-top: 20px;
         width: 80px;
         height: 35px;
         border-radius: 5px;

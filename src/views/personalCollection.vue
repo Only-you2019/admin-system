@@ -1,6 +1,5 @@
 <template>
-    <div class="personalCollection">
-        <el-container class="container">
+    <el-container class="container1">
             <!-- 头部 -->
             <el-header style="text-align: right; font-size: 12px">
                 <xh-head></xh-head>
@@ -28,7 +27,6 @@
                 </el-main>
             </el-container>
         </el-container>
-    </div>
 </template>
 
 <script>
@@ -125,6 +123,9 @@
 </script>
 
 <style scoped>
+    .container1{
+        height: 100%;
+    }
     .el-header{
 
         background-color: #111;

@@ -88,7 +88,7 @@ Vue.use(Router)
       path: '/Admin',
       name: 'Admin',
       component: Admin
-    },
+    },{
       path: '/BookList',
       name: 'BookList',
       component: BookList

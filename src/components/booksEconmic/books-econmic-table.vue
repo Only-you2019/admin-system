@@ -2,19 +2,19 @@
 	<div >
 			<div class="Books-scients-box-table">
 				<el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" border @selection-change="handleSelectionChange">
-                    <el-table-column type="selection" width="55">
+                    <el-table-column type="selection" >
                     </el-table-column>
-                     <el-table-column  prop="id" label="ID" width="140">
+                     <el-table-column  prop="id" label="ID" width="90">
                     </el-table-column>
-					<el-table-column  prop="booksName" label="书名" width="140">
+					<el-table-column  prop="booksName" label="书名" >
 					</el-table-column>
-					 <el-table-column  prop="author" label="作者" >
+					 <el-table-column  prop="author" label="作者" width="150">
 					</el-table-column>
-					<el-table-column  prop="price" label="价格">
+					<el-table-column  prop="price" label="价格" width="100">
 					</el-table-column>
-                    <el-table-column prop="pic"  label="出版社" width="180">
+                    <el-table-column prop="pic"  label="出版社" width="150">
                     </el-table-column>
-                    <el-table-column  prop="sort" label="类别">
+                    <el-table-column  prop="sort" label="类别" width="150">
                     </el-table-column>
 					<el-table-column label="操作">
                         <template slot-scope="scope">

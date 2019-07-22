@@ -13,6 +13,11 @@
                 </el-aside>
                 <!-- 右侧主体 -->
                 <el-main class="el-main">
+					<el-breadcrumb separator-class="el-icon-arrow-right">
+					  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					  <el-breadcrumb-item>图书分类</el-breadcrumb-item>
+					  <el-breadcrumb-item>教育考试</el-breadcrumb-item>
+					</el-breadcrumb>
                     <H-t-educational-examination-header @sureUpload="sureUpload"></H-t-educational-examination-header>
                     <H-t-educational-examination-main :tableData="tableData" @deleteRow="deleteRow"></H-t-educational-examination-main>
                     <H-t-educational-examination-paging></H-t-educational-examination-paging>

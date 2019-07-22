@@ -36,6 +36,7 @@
     },
     data() {
       return {
+          index:1,
           tableData: [],
           searchBook_new:[],
           new_tableData:[
@@ -122,6 +123,7 @@
       }
     },
       created(){
+        // this.tableData=this.new_tableData
         this.tableData=this.new_tableData.slice(0,5)
       },
     methods: {
@@ -131,7 +133,8 @@
         },
         //上传书籍
         sureUpload(book){
-            this.new_tableData.push(book);
+            this.new_tableData.push(JSON.parse(JSON.stringify(book)));
+            this.handleCurrentChange(this.index)
         },
         //查询书籍
         searchBook(book){
@@ -150,8 +153,9 @@
         },
         //分页
         handleCurrentChange(val) {
+            this.index=val
             this.tableData=this.new_tableData.slice(5*(val-1),5*val)
-            this.searchBook_new=this.new_tableData.slice(5*(val-1),5*val)
+            // this.searchBook_new=this.new_tableData.slice(5*(val-1),5*val)
         },
     }
 

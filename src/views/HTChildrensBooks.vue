@@ -13,6 +13,11 @@
                 </el-aside>
                 <!-- 右侧主体 -->
                 <el-main class="el-main">
+					<el-breadcrumb separator-class="el-icon-arrow-right">
+					  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					  <el-breadcrumb-item>图书分类</el-breadcrumb-item>
+					  <el-breadcrumb-item>少儿童书</el-breadcrumb-item>
+					</el-breadcrumb>
                     <H-t-childrens-books-header @sureUpload="sureUpload"></H-t-childrens-books-header>
                     <H-t-childrens-books-main :tableData="tableData" @deleteRow="deleteRow"></H-t-childrens-books-main>
                     <H-t-childrens-books-paging></H-t-childrens-books-paging>

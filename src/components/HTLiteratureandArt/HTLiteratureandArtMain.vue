@@ -44,9 +44,6 @@
                 <template slot-scope="scope">
                     <el-button
                             size="mini"
-                           >编辑</el-button>
-                    <el-button
-                            size="mini"
                             type="danger"
                             @click.native.prevent="deleteRow(scope.$index)"
                            >删除</el-button>
@@ -76,7 +73,7 @@
 <style scoped>
     .HTLiteratureandArtMain{
         padding: 20px 100px;
-        height: 700px;
+        height: 600px;
         overflow-y: auto;
     }
 </style>

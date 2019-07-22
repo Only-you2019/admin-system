@@ -67,11 +67,11 @@
               </el-menu-item>
               <el-menu-item index="/IndividualOrders">
                 <i class="el-icon-arrow-right"></i>
-                <span>个人订单</span>
+                <span>个人收藏</span>
               </el-menu-item>
               <el-menu-item index="/personalCollection">
                 <i class="el-icon-arrow-right"></i>
-                <span>个人收藏</span>
+                <span>个人订单</span>
               </el-menu-item>
             </el-menu-item-group>
           </el-submenu>

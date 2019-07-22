@@ -14,6 +14,10 @@ import HTLiteratureandArt from './views/HTLiteratureandArt.vue'
 import HTSocialScience from './views/HTSocialScience.vue'
 import Admin from './views/Admin'
 import BookList from './views/BookList'
+
+
+
+
 Vue.use(Router)
  const router = new Router({
   mode: 'history',
@@ -84,11 +88,17 @@ Vue.use(Router)
       component: HTSocialScience
     },
     {
-
       path: '/Admin',
       name: 'Admin',
       component: Admin
     },{
+<<<<<<< HEAD
+=======
+      path: '/Admin',
+      name: 'Admin',
+      component: Admin
+    },{
+>>>>>>> e6b25c9c2c0c44fcf7df07b8f573a27ed7ce0434
       path: '/BookList',
       name: 'BookList',
       component: BookList

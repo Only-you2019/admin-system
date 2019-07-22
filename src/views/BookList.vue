@@ -1,11 +1,11 @@
 <template>
-  <el-container class="container">
+  <el-container class="container1">
 <!--    头部-->
-    <el-header class="el-header">
+    <el-header>
         <xh-head></xh-head>
     </el-header>
     <el-container>
-      <el-aside class="el-aside" width="200px">
+      <el-aside class="aside" width="220px">
         <xh-aside></xh-aside>
       </el-aside>
       <el-container>
@@ -159,11 +159,20 @@
 </script>
 
 <style scoped>
-  .el-main {
+    .el-header{
+        background-color: #111 !important;
+    }
+    .el-main {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
     line-height: 30px;
   }
-
+    .container1{
+        height: 100%;
+    }
+    .aside{
+        background-color: #222324;
+        /* border-right: 1px solid #131e26; */
+    }
 </style>

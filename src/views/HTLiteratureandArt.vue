@@ -13,6 +13,11 @@
                 </el-aside>
                 <!-- 右侧主体 -->
                 <el-main class="el-main">
+					<el-breadcrumb separator-class="el-icon-arrow-right">
+					  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					  <el-breadcrumb-item>图书分类</el-breadcrumb-item>
+					  <el-breadcrumb-item>文学艺术</el-breadcrumb-item>
+					</el-breadcrumb>
                     <H-t-literatureand-art-header @sureUpload="sureUpload"></H-t-literatureand-art-header>
                     <H-t-literatureand-art-main :tableData="tableData" @deleteRow="deleteRow"></H-t-literatureand-art-main>
                     <H-t-literatureand-art-paging></H-t-literatureand-art-paging>

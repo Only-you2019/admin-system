@@ -44,9 +44,6 @@
                 <template slot-scope="scope">
                     <el-button
                             size="mini"
-                            @click="handleEdit">编辑</el-button>
-                    <el-button
-                            size="mini"
                             type="danger"
                             @click.native.prevent="deleteRow(scope.$index)"
                             @click="handleDelete">删除</el-button>
@@ -71,12 +68,13 @@
             }
         }
     }
+
 </script>
 
 <style scoped>
     .HTEducationalExaminationMain{
         padding: 20px 100px;
-        height: 700px;
+        height: 600px;
         overflow-y: auto;
     }
 </style>

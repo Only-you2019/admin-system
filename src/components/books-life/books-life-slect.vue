@@ -49,6 +49,7 @@
 		margin-right: 10px;
 		font-size: 15px;
 		padding-left: 10px;
+		margin-bottom: 5px;
 	}
 	.Books-scients-box-slecte-query{
 		width: 70px;

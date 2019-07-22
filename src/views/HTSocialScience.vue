@@ -13,6 +13,11 @@
                 </el-aside>
                 <!-- 右侧主体 -->
                 <el-main class="el-main">
+					<el-breadcrumb separator-class="el-icon-arrow-right">
+					  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+					  <el-breadcrumb-item>图书分类</el-breadcrumb-item>
+					  <el-breadcrumb-item>人文社科</el-breadcrumb-item>
+					</el-breadcrumb>
                     <H-t-social-science-header @sureUpload="sureUpload"></H-t-social-science-header>
                     <H-t-social-science-main :tableData="tableData" @deleteRow="deleteRow"></H-t-social-science-main>
                     <H-t-social-science-paging></H-t-social-science-paging>

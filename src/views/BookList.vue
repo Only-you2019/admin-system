@@ -153,7 +153,7 @@
         },
         //分页
         handleCurrentChange(val) {
-            this.index=val
+            this.index = val
             this.tableData=this.new_tableData.slice(5*(val-1),5*val)
             // this.searchBook_new=this.new_tableData.slice(5*(val-1),5*val)
         },

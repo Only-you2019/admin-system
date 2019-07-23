@@ -127,7 +127,7 @@
         methods:{
             //添加书籍
             sureUpload(item) {
-                this.tableData.push(item);
+                this.tableData.push(JSON.parse(JSON.stringify(item)));
             },
             //删除书籍
             deleteRow(index) {

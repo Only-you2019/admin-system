@@ -59,13 +59,20 @@ export default {
             series: [{
                 data: [299, 432, 801, 934, 1290, 889,1330, 598, 865, 1253, 928, 1134],
                 type: 'line'
-            }]
+            }],
+            grid: {
+              show: true,
+              x: 60,
+              x2: 40,
+              y: 20,
+              height: 225
+          }
         })
         window.onresize = mychart1.resize;
     },
     drawGraph(){
         let mychart2 = this.$echarts.init(document.getElementById("pic2-panel-body"));
-        var axisData = ['周一','周二','周三','周四','周五','周六','周日'];
+        var axisData = ['第一季度','第二季度','第三季度','第四季度'];
         var data = axisData.map(function (item, i) {
             return Math.round(Math.random() * 1000 * (i + 1));
         });
